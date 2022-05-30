@@ -50,3 +50,4 @@ run.py：全局运行文件
 7、基础路径的设置
     在测试用例中使用一级关键字和热加载，如：
         base_url：${read_config(base_ljy_url)}
+查看更新
