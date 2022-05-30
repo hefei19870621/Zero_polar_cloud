@@ -1,0 +1,12 @@
+pytest
+pytest-html
+pytest-xdist
+pytest-ordering
+pytest-rerunfailures
+allure-pytest
+PyYAML
+allure-pytest
+pymongo
+jsonpath
+requests
+Faker

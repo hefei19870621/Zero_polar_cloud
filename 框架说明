@@ -1,0 +1,52 @@
+Commons：用于封装公共方法，比如日志，请求，yaml处理等
+Datas：用于存放YAML数据驱动文件
+Hotoads：用于编写热加载函数文件
+logs：存放日志文件
+reports：存放定制的allure报告
+temps：存放临时报告文件夹
+testcases：存放YAML测试用例
+config.yaml：全局配置文件
+conftest.py：全局fixture固件
+extract.yaml：全局接口关键中间变量提取文件
+pytest.ini：全局pytest配置文件
+run.py：全局运行文件
+
+这个框架实现的功能包括：
+1、规范YAML测试用例：
+    一级关键字必须包含：name、base_url、request、validate
+        在request下必须包含：method、url
+2、支持多种传参方式：
+    a、get请求，那么必须通过params传参
+    b、post请求：
+        · 传json格式，需要使用json传参
+        · 传表单格式，需要使用data传参
+    c、文件上传：使用files传参
+3、接口关联：支持多种提取方式：正则表达式和jsonpath表达式提取
+    提取方式：
+        extract：
+            access_token：'"access_token":"(.+?)"'       #正则
+            expires_in：$.expires_in     #josnpath
+    取值方式：其中read_extract_data是热加载方法名，access_token是提取的变量名：
+            ${read_extract_data(access_token)}
+4、热加载
+    a、在hotloads目录下创建一个py文件并新建一个类（可以自定义），然后写方法，注意返回值需要字符串就返回字符串，需要整形就返回整形，如下：
+    b、在测试用例当中传入的对象，如DebugTalk（）
+        @pytest.mark.parametrize("caseinfo", read_testcase_yaml("./testcases/stream_media/stream_media_CreateLivePushStream.yaml"))
+        def test_login(self, caseinfo):
+            RequestsUtil(DebugTalk()).standard_yaml(caseinfo)
+    c、在YAML测试用例调用函数，如：
+        json：{"tag":{"name":"零极云${get_random_number(10000,99999)}}"}
+5、此框架支持2种断言方式：分别是equals和contains断言，如：
+    validate：
+    - equals：{status_code：200}
+    - equals：{expires_in：7200}
+    - contains：access_token
+6、数据驱动使用yaml和一级关键字parameterize实现，如：测试用例yaml写法：
+    引入数据驱动文件
+    paramterize:
+        case_name-ServiceID-StreamID-TimeStamp-assert_str: /datas/stream_media/media_CreateLivePushStream.yaml
+    引入变量
+        $ddt{StreamID}
+7、基础路径的设置
+    在测试用例中使用一级关键字和热加载，如：
+        base_url：${read_config(base_ljy_url)}

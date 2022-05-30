@@ -1,0 +1,25 @@
+-
+  case_name: $ddt{case_name}
+  requests:
+    method: post
+    base_url: ${read_config_yaml(base,zero_polar_cloud)}
+    url: /api/add-house
+    json:
+      houseName: $ddt{houseName}
+      status: $ddt{status}
+      line: $ddt{line}
+      houseId: $ddt{houseId}
+      id: $ddt{id}
+      area: $ddt{area}
+    headers:
+      Authorization: Bearer ${read_extract_data(access_token)}
+  paramterize:
+    - [ 'case_name','houseName','status','line','houseId','id','area','assert_str' ]
+    - [ '创建机房成功-启用','湖北机房','1','湖北线路','','','湖北','新增机房成功' ]
+    - [ '创建机房成功-禁用','湖南机房','0','湖南线路','','','湖南','新增机房成功' ]
+    - [ '创建机房失败-名称已存在','湖北机房','1','湖北线路','','','湖北','机房名称已存在，请重新填写' ]
+    - [ '创建机房失败-线路已存在','湖北机房1','1','湖北线路','','','湖北','线路名称已存在，请重新填写' ]
+  validate:
+#    - status_code: {status_code: 200}
+#    - equals: {code: 1000}
+    - contains: $ddt{assert_str}

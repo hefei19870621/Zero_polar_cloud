@@ -1,0 +1,17 @@
+#基础路径
+base:
+  zero_polar_cloud: http://192.168.3.248
+  stream_media_url: http://111.26.43.84:10086
+
+#日志配置
+log:
+  log_name: logs_
+  log_level: info
+  log_format: '[%(asctime)s] [%(levelname)s]: %(message)s'
+
+mongdb_db:
+  username: root
+  password: 123456
+  host: 192.168.3.248
+  port: 27017
+  db_name: lj_web

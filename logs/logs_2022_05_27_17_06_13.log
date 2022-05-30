@@ -1,0 +1,54 @@
+[2022-05-27 17:06:13,274] [INFO]: ---------------开始执行用例---------------
+[2022-05-27 17:06:13,274] [INFO]: 用例名称：登录账号
+[2022-05-27 17:06:13,274] [INFO]: 请求方式：post
+[2022-05-27 17:06:13,274] [INFO]: 请求路径：/api/admin-login
+[2022-05-27 17:06:13,276] [INFO]: 请求json参数：{'name': 'admin', 'password': '0a0e71ea0168075a93043b41d262fd47'}
+[2022-05-27 17:06:14,778] [INFO]: 预期结果：[{'status_code': {'status_code': 200}}, {'equals': {'expires_in': 7200}}, {'contains': '登陆成功'}]
+[2022-05-27 17:06:14,778] [INFO]: 实际结果：{'code': 200, 'msg': '登陆成功', 'data': {'aid': '626128c0180efa63c6062873', 'roleId': '626128c0180efa63c6062872', 'token': {'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODA5MFwvYXBpXC9hZG1pbi1sb2dpbiIsImlhdCI6MTY1MzY2OTI0NywiZXhwIjoxNjUzNjc2NDQ3LCJuYmYiOjE2NTM2NjkyNDcsImp0aSI6IkdpN1VNWnFoRmhxaUpNbXQiLCJzdWIiOiI2MjYxMjhjMDE4MGVmYTYzYzYwNjI4NzMiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.sDLlL2P5V10ByawcfhyDgRrN164WPXwEVaGnKFhpsZI', 'token_type': 'bearer', 'expires_in': 7200}}}
+[2022-05-27 17:06:14,779] [INFO]: 结果断言成功！
+[2022-05-27 17:06:14,779] [INFO]: ---------------用例执行成功---------------
+
+[2022-05-27 17:06:14,811] [INFO]: ---------------开始执行用例---------------
+[2022-05-27 17:06:14,811] [INFO]: 用例名称：创建机房成功-启用
+[2022-05-27 17:06:14,811] [INFO]: 请求方式：post
+[2022-05-27 17:06:14,811] [INFO]: 请求路径：/api/add-house
+[2022-05-27 17:06:14,813] [INFO]: 请求json参数：{'houseName': '湖北机房', 'status': '1', 'line': '湖北线路', 'houseId': '', 'id': '', 'area': '湖北'}
+[2022-05-27 17:06:14,816] [INFO]: 请求headers参数：{'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODA5MFwvYXBpXC9hZG1pbi1sb2dpbiIsImlhdCI6MTY1MzY2OTI0NywiZXhwIjoxNjUzNjc2NDQ3LCJuYmYiOjE2NTM2NjkyNDcsImp0aSI6IkdpN1VNWnFoRmhxaUpNbXQiLCJzdWIiOiI2MjYxMjhjMDE4MGVmYTYzYzYwNjI4NzMiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.sDLlL2P5V10ByawcfhyDgRrN164WPXwEVaGnKFhpsZI'}
+[2022-05-27 17:06:16,522] [INFO]: 预期结果：[{'contains': '新增机房成功'}]
+[2022-05-27 17:06:16,522] [INFO]: 实际结果：{'code': 200, 'msg': '新增机房成功'}
+[2022-05-27 17:06:16,522] [INFO]: 结果断言成功！
+[2022-05-27 17:06:16,522] [INFO]: ---------------用例执行成功---------------
+
+[2022-05-27 17:06:16,525] [INFO]: ---------------开始执行用例---------------
+[2022-05-27 17:06:16,525] [INFO]: 用例名称：创建机房成功-禁用
+[2022-05-27 17:06:16,525] [INFO]: 请求方式：post
+[2022-05-27 17:06:16,525] [INFO]: 请求路径：/api/add-house
+[2022-05-27 17:06:16,527] [INFO]: 请求json参数：{'houseName': '湖南机房', 'status': '0', 'line': '湖南线路', 'houseId': '', 'id': '', 'area': '湖南'}
+[2022-05-27 17:06:16,530] [INFO]: 请求headers参数：{'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODA5MFwvYXBpXC9hZG1pbi1sb2dpbiIsImlhdCI6MTY1MzY2OTI0NywiZXhwIjoxNjUzNjc2NDQ3LCJuYmYiOjE2NTM2NjkyNDcsImp0aSI6IkdpN1VNWnFoRmhxaUpNbXQiLCJzdWIiOiI2MjYxMjhjMDE4MGVmYTYzYzYwNjI4NzMiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.sDLlL2P5V10ByawcfhyDgRrN164WPXwEVaGnKFhpsZI'}
+[2022-05-27 17:06:18,245] [INFO]: 预期结果：[{'contains': '新增机房成功'}]
+[2022-05-27 17:06:18,245] [INFO]: 实际结果：{'code': 200, 'msg': '新增机房成功'}
+[2022-05-27 17:06:18,245] [INFO]: 结果断言成功！
+[2022-05-27 17:06:18,246] [INFO]: ---------------用例执行成功---------------
+
+[2022-05-27 17:06:18,248] [INFO]: ---------------开始执行用例---------------
+[2022-05-27 17:06:18,248] [INFO]: 用例名称：创建机房失败-名称已存在
+[2022-05-27 17:06:18,248] [INFO]: 请求方式：post
+[2022-05-27 17:06:18,249] [INFO]: 请求路径：/api/add-house
+[2022-05-27 17:06:18,250] [INFO]: 请求json参数：{'houseName': '湖北机房', 'status': '1', 'line': '湖北线路', 'houseId': '', 'id': '', 'area': '湖北'}
+[2022-05-27 17:06:18,253] [INFO]: 请求headers参数：{'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODA5MFwvYXBpXC9hZG1pbi1sb2dpbiIsImlhdCI6MTY1MzY2OTI0NywiZXhwIjoxNjUzNjc2NDQ3LCJuYmYiOjE2NTM2NjkyNDcsImp0aSI6IkdpN1VNWnFoRmhxaUpNbXQiLCJzdWIiOiI2MjYxMjhjMDE4MGVmYTYzYzYwNjI4NzMiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.sDLlL2P5V10ByawcfhyDgRrN164WPXwEVaGnKFhpsZI'}
+[2022-05-27 17:06:19,925] [INFO]: 预期结果：[{'contains': '机房名称已存在，请重新填写'}]
+[2022-05-27 17:06:19,926] [INFO]: 实际结果：{'code': 10000, 'msg': '机房名称已存在，请重新填写'}
+[2022-05-27 17:06:19,926] [INFO]: 结果断言成功！
+[2022-05-27 17:06:19,926] [INFO]: ---------------用例执行成功---------------
+
+[2022-05-27 17:06:19,928] [INFO]: ---------------开始执行用例---------------
+[2022-05-27 17:06:19,928] [INFO]: 用例名称：创建机房失败-线路已存在
+[2022-05-27 17:06:19,929] [INFO]: 请求方式：post
+[2022-05-27 17:06:19,929] [INFO]: 请求路径：/api/add-house
+[2022-05-27 17:06:19,930] [INFO]: 请求json参数：{'houseName': '湖北机房1', 'status': '1', 'line': '湖北线路', 'houseId': '', 'id': '', 'area': '湖北'}
+[2022-05-27 17:06:19,933] [INFO]: 请求headers参数：{'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODA5MFwvYXBpXC9hZG1pbi1sb2dpbiIsImlhdCI6MTY1MzY2OTI0NywiZXhwIjoxNjUzNjc2NDQ3LCJuYmYiOjE2NTM2NjkyNDcsImp0aSI6IkdpN1VNWnFoRmhxaUpNbXQiLCJzdWIiOiI2MjYxMjhjMDE4MGVmYTYzYzYwNjI4NzMiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.sDLlL2P5V10ByawcfhyDgRrN164WPXwEVaGnKFhpsZI'}
+[2022-05-27 17:06:21,559] [INFO]: 预期结果：[{'contains': '线路名称已存在，请重新填写'}]
+[2022-05-27 17:06:21,559] [INFO]: 实际结果：{'code': 10000, 'msg': '线路名称已存在，请重新填写'}
+[2022-05-27 17:06:21,559] [INFO]: 结果断言成功！
+[2022-05-27 17:06:21,559] [INFO]: ---------------用例执行成功---------------
+

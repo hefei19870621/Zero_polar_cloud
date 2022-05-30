@@ -1,0 +1,13 @@
+case_name: 登录账号
+requests:
+  method: post
+  base_url: ${read_config_yaml(base,zero_polar_cloud)}
+  url: /api/admin-login
+  json: {"name":"admin","password":"0a0e71ea0168075a93043b41d262fd47"}
+extract:
+  access_token: '"access_token":"(.+?)"'
+#  expires_in: $.data.token.expires_in
+validate:
+  - status_code: {status_code: 200}
+  - equals: {expires_in: 7200}
+  - contains: 登陆成功
