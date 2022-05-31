@@ -1,0 +1,55 @@
+-
+  case_name: 登录零极云系统
+  requests:
+    method: post
+    base_url: ${read_config_yaml(base,zero_polar_cloud)}
+    url: /api/admin-login
+    json: {"name":"admin","password":"0a0e71ea0168075a93043b41d262fd47"}
+  extract:
+    access_token: '"smoke_token":"(.+?)"'
+  #  expires_in: $.data.token.expires_in
+  validate:
+    - status_code: {status_code: 200}
+    - equals: {expires_in: 7200}
+    - contains: 登陆成功
+
+-
+  case_name: 新建机房成功
+  requests:
+    method: post
+    base_url: ${read_config_yaml(base,zero_polar_cloud)}
+    url: /api/add-house
+    json:
+      houseName: 河南机房
+      status: 1
+      line: 河南线路
+      houseId:
+      id:
+      area: 河南
+    headers:
+      Authorization: Bearer ${read_extract_data(access_token)}
+  validate:
+    - status_code: {status_code: 200}
+    - equals: {code: 200}
+    - contains: 新增机房成功
+
+-
+  case_name: 新增机柜成功
+  requests:
+    method: post
+    base_url: ${read_config_yaml(base,zero_polar_cloud)}
+    url: /api/add-cabinet
+    json:
+      houseName: 河南机房
+      houseId: HN01
+      status: 1
+      line: 河南线路
+      id:
+      cabinetNames[]: '{"key":1,"value":"河南机柜"}'
+      cabinetName:  河南机柜
+    headers:
+      Authorization: Bearer ${read_extract_data(access_token)}
+  validate:
+    - status_code: {status_code: 200}
+    - equals: {code: 200}
+#    - contains: $ddt{assert_str}

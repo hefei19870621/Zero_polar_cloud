@@ -57,6 +57,6 @@ def ddt_testcases_yaml(caseinfo):
 
 
 if __name__ == '__main__':
-    f = read_testcase_yaml("/zero_polar_cloud/resources_manage/computer_manage.yaml")
+    f = read_testcase_yaml("/zero_polar_cloud/smoke_case/smoke_case.yaml")
     for i in f:
-        print(i['paramterize'])
+        print(i)

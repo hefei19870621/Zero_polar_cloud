@@ -1,0 +1,25 @@
+-
+  case_name: $ddt{case_name}
+  requests:
+    method: post
+    base_url: ${read_config_yaml(base,zero_polar_cloud)}
+    url: /api/add-cabinet
+    json:
+      houseName: $ddt{houseName}
+      houseId: $ddt{houseId}
+      status: $ddt{status}
+      line: $ddt{line}
+      id: $ddt{id}
+      cabinetNames[]: $ddt{cabinetNames[]}
+      cabinetName:  $ddt{cabinetName}
+    headers:
+      Authorization: Bearer ${read_extract_data(access_token)}
+  paramterize:
+    - [ 'case_name','houseName','houseId','status','line','id','cabinetNames','cabinetName','assert_str' ]
+    - [ '创建机柜成功-启用','广西机房','GX01','1','广西线路','','{"key":1,"value":"广西1柜"}','广西1柜','200' ]
+    - [ '创建机柜成功-禁用','广西机房','GX01','0','广西线路','','{"key":1,"value":"广西2柜"}','广西2柜','200' ]
+    - [ '机柜名重复，新建失败','广西机房','GX01','0','广西线路','','{"key":1,"value":"广西二柜"}','广西二柜','此机柜名称已经使用，请重新输入' ]
+  validate:
+#    - status_code: {status_code: 200}
+#    - equals: {code: 1000}
+    - contains: $ddt{assert_str}

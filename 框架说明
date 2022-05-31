@@ -1,15 +1,15 @@
-Commons：用于封装公共方法，比如日志，请求，yaml处理等
-Datas：用于存放YAML数据驱动文件
-Hotoads：用于编写热加载函数文件
-logs：存放日志文件
-reports：存放定制的allure报告
-temps：存放临时报告文件夹
-testcases：存放YAML测试用例
-config.yaml：全局配置文件
-conftest.py：全局fixture固件
-extract.yaml：全局接口关键中间变量提取文件
-pytest.ini：全局pytest配置文件
-run.py：全局运行文件
+Commons用于封装公共方法，比如日志，请求，yaml处理等
+Datas用于存放YAML数据驱动文件
+Hotloads用于编写热加载函数文件
+logs∶存放日志文件
+reports∶存放定制的allure报告
+temps∶存放临时报告文件夹
+testcases∶存放YAML测试用例
+config.yaml∶全局配置文件
+conftest.py∶全局fixture固件
+extract.yaml∶全局接口关联中间变量提取文件
+pytest.ini∶全局pytest配置文件
+rrun.py∶全局运行文件
 
 这个框架实现的功能包括：
 1、规范YAML测试用例：
@@ -44,10 +44,11 @@ run.py：全局运行文件
 6、数据驱动使用yaml和一级关键字parameterize实现，如：测试用例yaml写法：
     引入数据驱动文件
     paramterize:
-        case_name-ServiceID-StreamID-TimeStamp-assert_str: /datas/stream_media/media_CreateLivePushStream.yaml
+    - [ 'case_name','houseName','houseId','status','line','id','cabinetNames','cabinetName','assert_str' ]
+    - [ '创建机柜成功-启用','广西机房','GX01','1','广西线路','','{"key":1,"value":"广西一柜"}','广西一柜','200' ]
+    - [ '创建机柜成功-禁用','广西机房','GX01','0','广西线路','','{"key":1,"value":"广西二柜"}','广西二柜','200' ]
     引入变量
         $ddt{StreamID}
 7、基础路径的设置
     在测试用例中使用一级关键字和热加载，如：
         base_url：${read_config(base_ljy_url)}
-查看更新
